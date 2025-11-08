@@ -26,6 +26,7 @@ class InventoryPage extends Page {
         await expect(this.cartElement('link')).toBeClickable ();
             }
     async checkingBadgeNumberTest4() {
+        await expect(this.cartElement('badge')).not.toBeExisting
         const itemsToCheckBadge = listOfProducts.slice(0,4); //taking first 4 items from the list
         let expectedBadgeNumber = 0;
         for (const item of itemsToCheckBadge) {
@@ -37,6 +38,7 @@ class InventoryPage extends Page {
         await this.openOrCloseMenu('menu').click();
         await MenubtnPage.buttonInsideMenu('reset').click();
                     }
+
     async checkingCartItemTest5() {
         await this.cartElement('link').click();
         await expect(this.removeItem('sauce-labs-backpack')).not.toBeExisting ();
@@ -75,6 +77,7 @@ class InventoryPage extends Page {
         await this.cartElement('link').click();
         await browser.url('https://www.saucedemo.com/cart.html');
         await expect(this.cartElement('badge')).toHaveText('1');
+        await expect(this)
         await this.openOrCloseMenu('menu').click();
         await this.openOrCloseMenu('cross').click();
         await this.continueShoppingBtn.click();
@@ -86,6 +89,7 @@ class InventoryPage extends Page {
         await browser.back();
         await expect(this.removeItem('sauce-labs-backpack')).toBeDisplayed ();
         await this.removeItem('sauce-labs-backpack').click();
+        await browser.refresh();
     }
 }
 
