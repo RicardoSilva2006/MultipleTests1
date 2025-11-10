@@ -5,7 +5,7 @@ class LoginPage extends Page {
     get inputUsername () {return $('#user-name');}
     get inputPassword () {return $('#password');}
     get btnSubmit () {return $('#login-button');}
-    get appLogo () {return $('.app_logo');}
+    
 
     async login() {
         const credentials = {username: 'standard_user', password:'secret_sauce'}
@@ -13,8 +13,14 @@ class LoginPage extends Page {
         await this.inputUsername.setValue(credentials.username);
         await this.inputPassword.setValue(credentials.password);
         await this.btnSubmit.click();
-        await expect(this.appLogo).toBeExisting ();
+        await expect(super.appLogo).toBeExisting ();
     }
+    async menuFeaturesTest3part2() {;
+        await expect(super.buttonInsideMenu('about')).toHaveHref('https://saucelabs.com/');
+        await super.buttonInsideMenu('logout').click
+        await this.login('standard_user', 'secret_sauce');
+        await expect(super.appLogo).toBeExisting ();
+}
 }
 
 export default new LoginPage();

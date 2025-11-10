@@ -1,12 +1,11 @@
 import LoginPage from '../pageobjects/login.page.js'
 import InventoryPage from '../pageobjects/inventory.page.js'
-import MenubtnPage from '../pageobjects/menubtn.page.js'
-import inventoryPage from '../pageobjects/inventory.page.js'
+import InventoryPage from '../pageobjects/inventory.page.js'
 
 describe('Sauce Demo menu closing', () => {
         it ('Should close only when clicking on X button', async () => {
             await LoginPage.login();
-            await inventoryPage.hamXTest1();
+            await InventoryPage.hamXTest1();
         })
 })
 
@@ -20,7 +19,9 @@ describe('Sauce Demo menu overlay', () => {
 describe ('Sauce Demo menu functionality', () => {
         it ('Each menu option is working as intended', async () => {
             await LoginPage.login();
-            await MenubtnPage.menuFeaturesTest3();
+            await InventoryPage.menuFeaturesTest3part1();
+            await LoginPage.menuFeaturesTest3part2();
+            await InventoryPage.menuFeaturesTest3part3();
     })
 })
 
